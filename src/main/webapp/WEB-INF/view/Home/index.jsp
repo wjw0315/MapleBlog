@@ -28,6 +28,16 @@
         <div id="primary" class="content-area">
 
             <main id="main" class="site-main" role="main">
+                <div id="slideshow" class="wow fadeInUp" data-wow-delay="0.3s">
+                    <ul class="rslides callbacks callbacks1" id="slider" style="max-width: 2000px;">
+                        <li id="callbacks1_s0" style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 800ms ease-in-out 0s;" class="callbacks1_on">
+                            <a href="/aboutSite" target="_blank" rel="external nofollow">
+                                <img src="/img/show4.jpg" alt="一个简单漂亮的Java博客系统-适合初学ssm者">
+                            </a>
+                            <p class="slider-caption">一个简单漂亮的Java博客系统</p>
+                        </li>
+                    </ul>
+                </div>
                 <c:forEach items="${articleListVoList}" var="a">
 
                     <article  class="post type-post">

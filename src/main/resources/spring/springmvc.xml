@@ -54,6 +54,9 @@
     <mvc:resources mapping="/plugin/**" location="/resource/assets/plugin/"></mvc:resources>
     <mvc:resources mapping="/scripts/**" location="/resource/syntaxhighlighter/scripts/"></mvc:resources>
     <mvc:resources mapping="/styles/**" location="/resource/syntaxhighlighter/styles/"></mvc:resources>
+    <!--editmd strat-->
+    <mvc:resources mapping="/editormd/**" location="/resource/assets/editormd/" />
+    <!--editmd end-->
 
 
     <mvc:interceptors>

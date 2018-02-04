@@ -30,6 +30,7 @@
                 ${options.optionSiteTitle}-${options.optionSiteDescrption}
         </title>
     </rapid:block>
+
     <!-- 代码高亮start-->
     <script type="text/javascript" src="${APP_PATH}/scripts/shCore.js"></script>
     <script type="text/javascript" src="${APP_PATH}/scripts/shBrushBash.js"></script>

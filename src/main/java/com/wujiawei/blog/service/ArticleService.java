@@ -1,10 +1,7 @@
 package com.wujiawei.blog.service;
 
 import com.wujiawei.blog.entity.Article;
-import com.wujiawei.blog.entity.custom.ArticleCustom;
-import com.wujiawei.blog.entity.custom.ArticleDetailVo;
-import com.wujiawei.blog.entity.custom.ArticleListVo;
-import com.wujiawei.blog.entity.custom.ArticleSearchVo;
+import com.wujiawei.blog.entity.custom.*;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;

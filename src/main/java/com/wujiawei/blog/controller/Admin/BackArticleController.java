@@ -3,6 +3,7 @@ package com.wujiawei.blog.controller.Admin;
 import com.wujiawei.blog.entity.Article;
 import com.wujiawei.blog.entity.custom.*;
 import com.wujiawei.blog.entity.custom.*;
+import com.wujiawei.blog.service.ArticleMdService;
 import com.wujiawei.blog.service.ArticleService;
 import com.wujiawei.blog.service.CategoryService;
 import com.wujiawei.blog.service.TagService;
@@ -26,6 +27,8 @@ public class BackArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private ArticleMdService articleMdService;
 
     @Autowired
     private TagService tagService;
@@ -176,6 +179,9 @@ public class BackArticleController {
 
         ArticleCustom articleCustom =  articleService.getArticleById(null,id);
         modelAndView.addObject("articleCustom",articleCustom);
+
+//        ArticlemdCustom articleCustom =  articleMdService.getArticleById(null,id);
+//        modelAndView.addObject("articleCustom",articleCustom);
 
         List<CategoryCustom> categoryCustomList = categoryService.listCategory(1);
         modelAndView.addObject("categoryCustomList",categoryCustomList);

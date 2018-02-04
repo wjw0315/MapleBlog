@@ -19,7 +19,12 @@
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.wujiawei.blog.entity.Article" extends="BaseResultMap" >
     <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
+
   </resultMap>
+  <resultMap id="ResultMapMdWithBLOBs" type="com.wujiawei.blog.entity.Article" extends="BaseResultMap" >
+    <result column="article_content_md" property="articleContentMd" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
   <sql id="Base_Column_List" >
     article_id, article_user_id, article_title, article_parent_category_id, article_child_category_id, 
     article_tag_ids, article_view_count, article_comment_count, article_like_count, article_post_time, 
@@ -46,13 +51,14 @@
       article_tag_ids, article_view_count, article_comment_count, 
       article_like_count, article_post_time, article_update_time, 
       article_is_comment, article_status, article_order, 
-      article_content)
+      article_content, article_contentt_md)
     values (#{articleId,jdbcType=INTEGER}, #{articleUserId,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, 
       #{articleParentCategoryId,jdbcType=INTEGER}, #{articleChildCategoryId,jdbcType=INTEGER}, 
       #{articleTagIds,jdbcType=VARCHAR}, #{articleViewCount,jdbcType=INTEGER}, #{articleCommentCount,jdbcType=INTEGER}, 
       #{articleLikeCount,jdbcType=INTEGER}, #{articlePostTime,jdbcType=TIMESTAMP}, #{articleUpdateTime,jdbcType=TIMESTAMP}, 
       #{articleIsComment,jdbcType=INTEGER}, #{articleStatus,jdbcType=INTEGER}, #{articleOrder,jdbcType=INTEGER}, 
-      #{articleContent,jdbcType=LONGVARCHAR})
+      #{articleContent,jdbcType=LONGVARCHAR}),
+      #{articleContentMd,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.wujiawei.blog.entity.Article" >
     insert into article
@@ -102,6 +108,9 @@
       <if test="articleContent != null" >
         article_content,
       </if>
+      <if test="articleContentMd != null" >
+        article_content_md,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="articleId != null" >
@@ -149,6 +158,9 @@
       <if test="articleContent != null" >
         #{articleContent,jdbcType=LONGVARCHAR},
       </if>
+      <if test="articleContentMd != null" >
+        #{articleContentMd,jdbcType=LONGVARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.wujiawei.blog.entity.Article" >
@@ -195,6 +207,9 @@
       </if>
       <if test="articleContent != null" >
         article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleContentMd != null" >
+        article_content_md = #{articleContentMd,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where article_id = #{articleId,jdbcType=INTEGER}

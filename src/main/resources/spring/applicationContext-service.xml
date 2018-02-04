@@ -43,7 +43,8 @@
     <!--菜单管理的service-->
     <bean id="menuService" class="com.wujiawei.blog.service.impl.MenuServiceImpl"/>
 
-
+    <!--后台的编辑内容获取，markdown-->
+    <bean id="articleMdService" class="com.wujiawei.blog.service.impl.ArticleMdServiceImpl"/>
 
     <!--常用功能-->
     <bean id="functions" class="com.wujiawei.blog.util.Functions"/>

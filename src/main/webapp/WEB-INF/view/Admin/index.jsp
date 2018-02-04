@@ -326,9 +326,21 @@
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
-                            <div class="layui-input-block">
-                                <textarea name="articleContent" placeholder="请输入内容" id="articleContent" class="layui-textarea" required></textarea>
-                            </div>
+                            <%--<div class="layui-input-block">--%>
+                                <%--<textarea name="articleContent" placeholder="请输入内容" id="articleContent" class="layui-textarea" required></textarea>--%>
+                            <%--</div>--%>
+                                <div class="layui-input-block">
+                                    <!-- editormd start -->
+
+                                    <div class="editormd" id="test-editormd">
+                                        <textarea class="editormd-markdown-textarea" name="articleContentMd" id="editormd"></textarea>
+                                        <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                                        <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
+                                        <textarea class="editormd-html-textarea" name="articleContent" id="editorhtml"></textarea>
+                                    </div>
+
+                                    <!-- editormd end -->
+                                </div>
                         </div>
                         <input type="hidden" name="articleStatus" value="0">
                         <div class="layui-form-item">

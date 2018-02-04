@@ -33,6 +33,8 @@ public class Article {
 
     private String articleContent;
 
+    private String articleContentMd;
+
     public Integer getArticleId() {
         return articleId;
     }
@@ -152,4 +154,12 @@ public class Article {
     public void setArticleContent(String articleContent) {
         this.articleContent = articleContent == null ? null : articleContent.trim();
     }
+    public String getArticleContentMd() {
+        return articleContentMd;
+    }
+
+    public void setArticleContentMd(String articleContentMd) {
+        this.articleContentMd = articleContentMd == null ? null : articleContentMd.trim();
+    }
+
 }

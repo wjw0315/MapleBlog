@@ -17,6 +17,10 @@
         ${options.optionSiteTitle}后台
             <rapid:block name="title"></rapid:block>
     </title>
+
+    <!--引入markdown css样式 -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/editormd/css/editormd.css" />
+
     <!-- 代码高亮start-->
     <script type="text/javascript" src="${APP_PATH}/scripts/shCore.js"></script>
     <script type="text/javascript" src="${APP_PATH}/scripts/shBrushBash.js"></script>
@@ -178,13 +182,41 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/plugin/layui/layui.all.js"></script>
 <script src="/js/back.js"></script>
+<!--引入markdown js   要放在body最下面-->
+<script src="${pageContext.request.contextPath}/editormd/editormd.js"></script>
 <rapid:block name="footer-script">
 
 </rapid:block>
 <script>
     //给文本编辑器的iframe引入代码高亮的css
-    $("iframe").contents().find("head").append("<link rel=\"stylesheet\" href=\"/css/highlight.css\">\n");
+   // $("iframe").contents().find("head").append("<link rel=\"stylesheet\" href=\"/css/highlight.css\">\n");
 
+</script>
+<script>
+    var testEditor;
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "90%",
+            height  : 400,
+            syncScrolling : "single",
+            saveHTMLToTextarea : true, //设置可保存为html 获取的时候testEditor.getHtml();就可以了
+            /*theme : "dark",*/  //设置主题，有默认
+            /*previewTheme : "dark",*/
+            /*editorTheme : "pastel-on-dark",*/
+            searchReplace : true,
+            emoji : true,
+            taskList : true,
+            tocm            : true,         // Using [TOCM]
+            tex : true,                   // 开启科学公式TeX语言支持，默认关闭
+            flowChart : true,             // 开启流程图支持，默认关闭
+            sequenceDiagram : true,       // 开启时序/序列图支持，默认关闭,
+            dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
+            imageUpload : false,
+          //  imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+         //   imageUploadURL : "/editormdPic",
+            path    : "${pageContext.request.contextPath}/editormd/lib/"
+        });
+    });
 </script>
 
 </body>

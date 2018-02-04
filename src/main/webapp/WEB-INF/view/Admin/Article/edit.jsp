@@ -35,8 +35,20 @@
 
         <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">内容  <span style="color: #FF5722; ">*</span></label>
+            <%--<div class="layui-input-block">--%>
+                <%--<textarea class="layui-textarea layui-hide" name="articleContent" id="content">${articleCustom.articleContent}</textarea>--%>
+            <%--</div>--%>
             <div class="layui-input-block">
-                <textarea class="layui-textarea layui-hide" name="articleContent" id="content">${articleCustom.articleContent}</textarea>
+                <!-- editormd start -->
+
+                <div class="editormd" id="test-editormd">
+                    <textarea class="editormd-markdown-textarea" name="articleContentMd" id="editormd" >${articleCustom.articleContentMd}</textarea>
+                    <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                    <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
+                    <textarea class="editormd-html-textarea" name="articleContent" id="editorhtml"></textarea>
+                </div>
+
+                <!-- editormd end -->
             </div>
         </div>
 
@@ -138,6 +150,13 @@
                 }
             );
 
+            layui.use('code', function(){ //加载code模块
+                layui.code();
+            });
+            layui.code({
+                elem: 'pre' ,//默认值为.layui-code
+                encode: true //是否转义html标签。默认不开启
+            });
 
             //自定义验证规则
             form.verify({
@@ -171,13 +190,7 @@
             });
 
 
-            layui.use('code', function(){ //加载code模块
-                layui.code();
-            });
-            layui.code({
-                elem: 'pr' ,//默认值为.layui-code
-             //   encode: true //是否转义html标签。默认不开启
-            });
+
 
 
             //二级联动
